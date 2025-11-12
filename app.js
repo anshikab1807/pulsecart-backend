@@ -9,13 +9,14 @@ import sellerRoutes from './routes/Seller.routes.js';
 import authRoutes from './routes/authRoutes.js';
 import cartRoutes from "./routes/Cart.routes.js";
 import orderRoutes from './routes/order.routes.js';
+import razorpayRoutes from './routes/razorpay.js';  // ← ADD THIS
 
 dotenv.config();
 const app = express();
 
-// CORS Configuration - MUST be before other middleware
+// CORS Configuration
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:3000'], // Add both Vite and potential other ports
+  origin: ['http://localhost:5173', 'http://localhost:3000'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization']
@@ -35,6 +36,7 @@ app.use("/api/sellers", sellerRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/cart", cartRoutes);
 app.use("/api/orders", orderRoutes);
+app.use('/api/razorpay', razorpayRoutes);  // ← ADD THIS
 
 // Health check
 app.get('/', (req, res) => {
