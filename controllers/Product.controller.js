@@ -29,8 +29,9 @@ export const getProductsByCategory = async (req, res) => {
     console.log("Fetching products for category:", category);
 
     const products = await Product.find({
-      category: { $regex: new RegExp(category, "i") }, // case-insensitive
-    }).sort({ createdAt: -1 });
+                      category: { $regex: new RegExp(`^${category}s?$`, "i") },
+                    }).sort({ createdAt: -1 });
+
 
     console.log(`Found ${products.length} products for category: ${category}`);
 
