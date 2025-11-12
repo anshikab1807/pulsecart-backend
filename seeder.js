@@ -1,7 +1,7 @@
 // seeder.js
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import Product from "./models/Product.js";
+import Product from "./models/product.js";
 import User from "./models/user.js";
 import Seller from "./models/Seller.js";
 
