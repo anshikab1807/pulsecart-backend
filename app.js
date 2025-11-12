@@ -16,7 +16,12 @@ const app = express();
 
 // CORS Configuration
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:3000'],
+  origin: [
+    'http://localhost:5173', 
+    'http://localhost:3000',
+    'https://pulsecart-frontend.vercel.app',  // ← ADD YOUR VERCEL URL
+    /\.vercel\.app$/  // ← This allows all your Vercel preview deployments
+  ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization']
